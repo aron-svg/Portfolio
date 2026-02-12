@@ -1,0 +1,15 @@
+services:
+  portfolio-dev:
+    image: node:20-alpine
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./frontend/portfolio:/app
+      - portfolio_node_modules:/app/node_modules
+    command: sh -c "corepack enable && pnpm install && pnpm dev"
+
+volumes:
+  portfolio_node_modules:

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import OrbitItem from "./components/OrbitItem";
+import ProjectsSection from "./components/ProjectsSection";
 
 export default function Home() {
   return (
@@ -88,6 +89,7 @@ export default function Home() {
           />
         </div>
       </section>
+      <ProjectsSection />
     </div>
   );
 }

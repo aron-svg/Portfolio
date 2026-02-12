@@ -339,3 +339,122 @@ body {
   animation: orbit-6 22s linear infinite;
 }
 
+.projects-section {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+.projects-header {
+  max-width: 36rem;
+  margin-bottom: 2.5rem;
+}
+
+.projects-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.75rem;
+}
+
+.projects-title {
+  font-size: clamp(2.2rem, 3vw + 1.4rem, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.projects-intro {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #121212, #070707);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+}
+
+.project-media {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.project-tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.project-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.project-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+.project-meta {
+  margin-top: 0.35rem;
+}
+
+.project-link,
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.project-link {
+  transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .projects-section {
+    padding: 0 1.5rem 4.5rem;
+  }
+}
+
