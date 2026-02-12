@@ -1,12 +1,11 @@
-import Image from "next/image";
 import OrbitItem from "./components/OrbitItem";
 import ProjectsSection from "./components/ProjectsSection";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-black text-white">
-      <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center gap-12 px-8 py-24 text-left lg:flex-row lg:justify-between animate-appear">
-        <div className="max-w-xl space-y-6">
+      <main className="hero-layout flex min-h-screen w-full flex-col items-center gap-12 px-8 py-24 text-left lg:flex-row lg:justify-between animate-appear">
+        <div className="hero-text hero-text-offset max-w-xl space-y-6">
           <p className="text-xs uppercase tracking-[0.5em] text-white/60 sm:text-sm">
             Portfolio
           </p>
@@ -33,16 +32,28 @@ export default function Home() {
             experiences.
           </p>
         </div>
-        <div className="pointer-events-none animate-float-y">
-          <div className="flex h-[520px] w-[520px] max-w-[78vw] items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-red-500 p-0 shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
-            <div className="h-full w-full overflow-hidden rounded-full">
-              <Image
-                src="/aron-bg2.png"
-                alt="Aron"
-                width={1200}
-                height={1800}
-                priority
-                className="h-full w-full object-cover object-center"
+        <div className="drone-flight">
+          <div className="drone-track">
+            <div className="drone-shell">
+              <model-viewer
+                className="drone-model"
+                src="/drone.glb"
+                alt="Drone"
+                autoplay
+                auto-rotate
+                disable-zoom
+                interaction-prompt="none"
+                background-color="transparent"
+                skybox-image=""
+                environment-image="neutral"
+                shadow-intensity="0.2"
+                exposure="0.85"
+                camera-orbit="35deg 70deg 3.8m"
+                min-camera-orbit="auto auto 3.0m"
+                max-camera-orbit="auto auto 4.6m"
+                field-of-view="45deg"
+                camera-target="0m 0m 0m"
+                style={{ background: "transparent" }}
               />
             </div>
           </div>

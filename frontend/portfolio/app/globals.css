@@ -23,6 +23,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 @keyframes appear {
@@ -40,6 +41,28 @@ body {
   animation: appear 900ms ease-out both;
 }
 
+.hero-layout {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 2;
+  text-align: left;
+  left: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-text-offset {
+  /* positioning handled by hero-text */
+}
+
 @keyframes float-y {
   0%,
   100% {
@@ -50,8 +73,71 @@ body {
   }
 }
 
+@keyframes drone-fly {
+  0% {
+    transform: translateX(-18vw) translateY(18px) rotate(-6deg) rotateZ(-18deg);
+  }
+  20% {
+    transform: translateX(-10vw) translateY(-64px) rotate(3deg) rotateZ(16deg);
+  }
+  40% {
+    transform: translateX(2vw) translateY(-12px) rotate(-1deg) rotateZ(-8deg);
+  }
+  50% {
+    transform: translateX(10vw) translateY(-36px) rotate(2deg) rotateZ(6deg);
+  }
+  60% {
+    transform: translateX(16vw) translateY(4px) rotate(-2deg) rotateZ(-12deg);
+  }
+  75% {
+    transform: translateX(22vw) translateY(48px) rotate(-4deg) rotateZ(18deg);
+  }
+  90% {
+    transform: translateX(6vw) translateY(24px) rotate(1deg) rotateZ(-6deg);
+  }
+  100% {
+    transform: translateX(-18vw) translateY(18px) rotate(-6deg) rotateZ(-18deg);
+  }
+}
+
 .animate-float-y {
   animation: float-y 3.5s ease-in-out infinite;
+}
+
+.drone-flight {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.drone-track {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: drone-fly 12s ease-in-out infinite;
+}
+
+.drone-shell {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.drone-model {
+  width: 100%;
+  height: 100%;
+  --poster-color: transparent;
+  background: transparent;
+  background-color: transparent;
+  transform: scale(0.82);
+  transform-origin: center;
 }
 
 .swap-word {
