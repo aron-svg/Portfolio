@@ -1,5 +1,6 @@
 import OrbitItem from "./components/OrbitItem";
 import ProjectsSection from "./components/ProjectsSection";
+import WhyMeSection from "./components/WhyMeSection";
 import ContactSection from "./components/ContactSection";
 import { ModelViewer } from "./components/ModelViewer";
 
@@ -102,6 +103,7 @@ export default function Home() {
           />
         </div>
       </section>
+      <WhyMeSection />
       <ProjectsSection />
       <ContactSection />
     </div>
