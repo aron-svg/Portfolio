@@ -1,5 +1,7 @@
 import OrbitItem from "./components/OrbitItem";
 import ProjectsSection from "./components/ProjectsSection";
+import ContactSection from "./components/ContactSection";
+import { ModelViewer } from "./components/ModelViewer";
 
 export default function Home() {
   return (
@@ -35,7 +37,7 @@ export default function Home() {
         <div className="drone-flight">
           <div className="drone-track">
             <div className="drone-shell">
-              <model-viewer
+              <ModelViewer
                 className="drone-model"
                 src="/drone.glb"
                 alt="Drone"
@@ -101,6 +103,7 @@ export default function Home() {
         </div>
       </section>
       <ProjectsSection />
+      <ContactSection />
     </div>
   );
 }
