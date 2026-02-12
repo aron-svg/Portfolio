@@ -288,6 +288,7 @@ body {
 
 .orbit-item:hover {
   animation-play-state: paused;
+  z-index: 100;
 }
 
 .orbit-sphere {
@@ -349,23 +350,26 @@ body {
 }
 
 .orbit-detail-popup {
-  position: fixed;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 15px;
   width: 320px;
   background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  z-index: 200;
   animation: popup-appear 200ms ease-out both;
   pointer-events: auto;
-  transform: translateX(-50%);
 }
 
 @keyframes popup-appear {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%) translateY(-10px);
   }
   to {
     opacity: 1;
