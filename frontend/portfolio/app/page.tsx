@@ -103,8 +103,8 @@ export default function Home() {
           />
         </div>
       </section>
-      <WhyMeSection />
       <ProjectsSection />
+      <WhyMeSection />
       <ContactSection />
     </div>
   );

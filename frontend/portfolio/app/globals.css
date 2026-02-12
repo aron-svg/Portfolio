@@ -283,6 +283,7 @@ body {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   z-index: 1;
+  pointer-events: all;
 }
 
 .orbit-item:hover {
@@ -345,6 +346,49 @@ body {
 .orbit-sphere:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 4px;
+}
+
+.orbit-detail-popup {
+  position: fixed;
+  width: 320px;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  animation: popup-appear 200ms ease-out both;
+  pointer-events: auto;
+  transform: translateX(-50%);
+}
+
+@keyframes popup-appear {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.orbit-detail-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.orbit-detail-content {
+  padding: 1.25rem;
+}
+
+.orbit-detail-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @keyframes orbit-1 {
@@ -577,9 +621,9 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 24px;
-  background: linear-gradient(145deg, #121212, #070707);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(145deg, #0f0f0f, #000000);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(168, 85, 247, 0.1);
   overflow: hidden;
 }
 
@@ -607,12 +651,33 @@ body {
   }
 }
 
+@keyframes dot-bounce {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .message-question {
   justify-content: flex-end;
 }
 
 .message-answer {
   justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0.5rem;
 }
 
 .message-answer:nth-child(2) {
@@ -626,7 +691,7 @@ body {
 }
 
 .message-question .message-bubble {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #a855f7, #ef4444);
   border-bottom-right-radius: 4px;
 }
 
@@ -640,6 +705,36 @@ body {
   margin: 0;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.95);
+}
+
+.message-text.loading {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0.25rem 0;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  display: inline-block;
+  opacity: 1;
+  animation: dot-bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
 .chat-input-wrapper {
@@ -665,8 +760,8 @@ body {
 
 .chat-input:focus {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
 }
 
 .chat-input::placeholder {
@@ -678,7 +773,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #a855f7, #ef4444);
   border: none;
   color: white;
   display: flex;
@@ -690,11 +785,36 @@ body {
 
 .chat-send-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 16px rgba(168, 85, 247, 0.4);
 }
 
 .chat-send-btn:active {
   transform: translateY(0);
+}
+
+.whyme-chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.whyme-chat {
+  flex: 1;
+  max-width: none;
+  margin: 0;
+}
+
+.message-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
 }
 
 @media (max-width: 640px) {
